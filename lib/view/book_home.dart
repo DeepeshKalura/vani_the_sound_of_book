@@ -34,7 +34,7 @@ class BooksHome extends StatelessWidget {
                       color: Colors.white,
                       size: 35,
                     ),
-                    // TODO: cool animation https://www.youtube.com/watch?v=Z37ukFI4Ot0
+                    // TODO: #2 https://www.youtube.com/watch?v=Z37ukFI4Ot0
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
