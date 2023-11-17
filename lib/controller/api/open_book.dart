@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import '../model/books.dart';
+import '../../model/books.dart';
 
 class OpenBookkApi {
   final baseUrl = "https://www.dbooks.org/api/";

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'book_home.dart';
+import 'view/book_home.dart';
 
 class BooksSplash extends StatelessWidget {
   const BooksSplash({super.key});
