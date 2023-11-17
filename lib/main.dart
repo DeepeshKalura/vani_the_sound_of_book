@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'books_splash.dart';
+import 'controller/app/home_controller.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,14 +14,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Vani',
-      theme: ThemeData(
-        primarySwatch: Colors.amber,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        fontFamily: "SourceSansPro",
+    return MultiProvider(
+      providers: [
+        Provider(
+          create: (context) => HomeController(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Vani',
+        theme: ThemeData(
+          primarySwatch: Colors.amber,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          fontFamily: "SourceSansPro",
+        ),
+        home: const BooksSplash(),
       ),
-      home: const BooksSplash(),
     );
   }
 }

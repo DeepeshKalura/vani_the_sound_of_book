@@ -7,8 +7,7 @@ import '../../model/books.dart';
 class OpenBookkApi {
   final baseUrl = "https://www.dbooks.org/api/";
   List<Books> books = [];
-
-  fetchBooks() async {
+  Future<List<Books>?> fetchBooks() async {
     var response = await http.get(Uri.parse(baseUrl + "books"));
     if (response.statusCode == 200) {
       var jsonResponse = json.decode(response.body);
@@ -18,6 +17,7 @@ class OpenBookkApi {
       return books;
     } else {
       print("Request failed with status: ${response.statusCode}.");
+      return null;
     }
   }
 }
