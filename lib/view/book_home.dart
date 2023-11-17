@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '/books_profile.dart';
 import '/book_data.dart';
-import 'book_model.dart';
-import 'books_details.dart';
+import '../book_model.dart';
+import '../books_details.dart';
 
 class BooksHome extends StatelessWidget {
   const BooksHome({super.key});
