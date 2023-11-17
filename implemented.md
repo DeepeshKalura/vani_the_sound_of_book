@@ -15,5 +15,5 @@ In when user have no books he current reads then i think some popular books will
 In this i wanted 3 animation drawer which will be cool to the user interaction
 
 ### 3
-
-
+*Book Home Screen*
+Currently the whole page is loading rather i wanted the modern way to showing the loading the page
