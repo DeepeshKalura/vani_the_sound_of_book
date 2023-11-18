@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'view/widget/book_home/book_section.dart';
+// import 'view/widget/book_home/book_section.dart';
 
 class BooksProfile extends StatelessWidget {
   const BooksProfile({super.key});
@@ -117,8 +117,9 @@ class BooksProfile extends StatelessWidget {
                               right: 20,
                             ),
                             alignment: Alignment.bottomCenter,
-                            child: const BookSection(
-                              heading: "BookShelf",
+                            child: const Text(
+                              // heading:
+                              "BookShelf",
                             ),
                           ),
                         )

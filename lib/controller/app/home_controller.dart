@@ -8,12 +8,17 @@ class HomeController extends ChangeNotifier {
   // TODO: Functionality I wanted to implemented #1
   final aboveSection = 'Continue Reading';
 
+  var isLoading = true;
+
   final OpenBookkApi _openBookkApi = OpenBookkApi();
 
   List<Books>? discoverbooks;
 
   Future<void> discoverBooks() async {
+    isLoading = true;
+    notifyListeners();
     discoverbooks = await _openBookkApi.fetchBooks();
+    isLoading = false;
     notifyListeners();
   }
 }

@@ -1,22 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../../../book_data.dart';
-import '../../../book_model.dart';
 import '../../../books_details.dart';
+import '../../../model/books.dart';
 
 class BookSection extends StatelessWidget {
   final String heading;
-  const BookSection({super.key, required this.heading});
+  final List<Books> bookList;
+  BookSection({super.key, required this.heading, required this.bookList});
   @override
   Widget build(BuildContext context) {
-    List<Book> bookList = [];
-    if (heading == "Continue Reading") {
-      bookList = recentBooks;
-    } else if (heading == "Discover More") {
-      bookList = allBooks;
-    } else if (heading == "BookShelf") {
-      bookList = allBooks;
-    }
     return SizedBox(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,8 +64,8 @@ class BookSection extends StatelessWidget {
                                 ),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(20),
-                                  child: Image.asset(
-                                    bookList[i].coverImage,
+                                  child: Image.network(
+                                    bookList[i].image!,
                                     fit: BoxFit.fill,
                                   ),
                                 ),
@@ -100,7 +92,7 @@ class BookSection extends StatelessWidget {
                         ),
                         const SizedBox(height: 16),
                         Text(
-                          bookList[i].name,
+                          bookList[i].title!,
                           style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.w700,
@@ -110,7 +102,7 @@ class BookSection extends StatelessWidget {
                           height: 2,
                         ),
                         Text(
-                          bookList[i].author,
+                          bookList[i].authors!,
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
