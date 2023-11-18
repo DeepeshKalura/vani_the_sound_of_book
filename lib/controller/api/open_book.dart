@@ -8,7 +8,7 @@ class OpenBookkApi {
   final baseUrl = "https://www.dbooks.org/api/";
   List<Books> books = [];
   Future<List<Books>?> fetchBooks() async {
-    var response = await http.get(Uri.parse(baseUrl + "books"));
+    var response = await http.get(Uri.parse(baseUrl + "recent"));
     if (response.statusCode == 200) {
       var jsonResponse = json.decode(response.body);
       for (var item in jsonResponse) {
