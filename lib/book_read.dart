@@ -88,13 +88,15 @@ class BooksRead extends StatelessWidget {
                             page ?? 0,
                             total ?? 0,
                           ),
-                        ).cachedFromUrl(book.pdfUrl!,
-                            placeholder: (double progress) => Center(
-                                  child: CircularProgressIndicator(),
-                                ),
-                            errorWidget: (dynamic error) => Center(
-                                  child: Text(error.toString()),
-                                )),
+                        ).cachedFromUrl(
+                          book.pdfUrl!,
+                          placeholder: (double progress) => Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                          errorWidget: (dynamic error) => Center(
+                            child: Text(error.toString()),
+                          ),
+                        ),
                       ),
                     ),
                     Padding(
