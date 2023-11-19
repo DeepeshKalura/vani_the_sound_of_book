@@ -17,3 +17,7 @@ In this i wanted 3 animation drawer which will be cool to the user interaction
 ### 3
 *Book Home Screen*
 Currently the whole page is loading rather i wanted the modern way to showing the loading the page
+
+### 4
+*Create a python bot*
+I wanted to create a python bot which will will consume the different book api and store them into the database.
