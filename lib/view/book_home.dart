@@ -118,17 +118,17 @@ class _BooksHomeState extends State<BooksHome> {
                             ),
                             BookSection(
                               heading: "Continue Reading",
-                              bookList: provider.discoverbooks!,
+                              bookList: provider.discoverBook,
                             ),
                             BookSection(
                               heading: "Discover More",
-                              bookList: provider.discoverbooks!,
+                              bookList: provider.discoverBook,
                             ),
                           ],
                         ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

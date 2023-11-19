@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../../../books_details.dart';
-import '../../../model/books.dart';
+import '../../../model/response_book.dart';
 
 class BookSection extends StatelessWidget {
   final String heading;
-  final List<Books> bookList;
+  final List<Book> bookList;
   BookSection({super.key, required this.heading, required this.bookList});
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ class BookSection extends StatelessWidget {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(20),
                                   child: Image.network(
-                                    bookList[i].image!,
+                                    bookList[i].imageUrl!,
                                     fit: BoxFit.fill,
                                   ),
                                 ),
@@ -102,7 +102,7 @@ class BookSection extends StatelessWidget {
                           height: 2,
                         ),
                         Text(
-                          bookList[i].authors!,
+                          bookList[i].author!,
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
