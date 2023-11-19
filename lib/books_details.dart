@@ -1,24 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
 
-import 'book_data.dart';
-import '/books_listen.dart';
-import '/book_read.dart';
-import 'book_model.dart';
+import 'book_read.dart';
+import 'books_listen.dart';
+import 'model/response_book.dart';
 
 class BooksDetails extends StatelessWidget {
-  final int index;
   final String section;
+  final Book book;
 
-  const BooksDetails({super.key, required this.index, required this.section});
+  const BooksDetails({super.key, required this.section, required this.book});
   @override
   Widget build(BuildContext context) {
-    List<Book> bookList = [];
-    if (section == "Continue Reading") {
-      bookList = recentBooks;
-    } else if (section == "Discover More") {
-      bookList = allBooks;
-    }
     return Scaffold(
       backgroundColor: const Color(0xfffff8ee),
       body: SizedBox(
@@ -86,9 +79,9 @@ class BooksDetails extends StatelessWidget {
                             ),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(20),
-                              child: Image.asset(
+                              child: Image.network(
                                 // "assets/images/0.jfif",
-                                bookList[index].coverImage,
+                                book.imageUrl!,
                                 fit: BoxFit.fill,
                               ),
                             ),
@@ -114,7 +107,7 @@ class BooksDetails extends StatelessWidget {
                     ),
                     Text(
                       // "Conjure Women",
-                      bookList[index].name,
+                      book.title!,
                       style: const TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.w700,
@@ -125,7 +118,7 @@ class BooksDetails extends StatelessWidget {
                     ),
                     Text(
                       //"By Afia Atakora",
-                      "By ${bookList[index].name}",
+                      "By ${book.author}",
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
@@ -262,7 +255,7 @@ class BooksDetails extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) => BooksListen(
-                                index: index,
+                                index: 1,
                                 section: section,
                               ),
                             ),

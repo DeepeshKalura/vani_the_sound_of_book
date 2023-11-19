@@ -31,8 +31,8 @@ class BookSection extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (ctx) => BooksDetails(
-                      index: i,
                       section: heading,
+                      book: bookList[i],
                     ),
                   ),
                 ),
@@ -91,21 +91,31 @@ class BookSection extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 16),
-                        Text(
-                          bookList[i].title!,
-                          style: const TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700,
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.4,
+                          child: Text(
+                            bookList[i].title!,
+                            maxLines: 1,
+                            overflow: TextOverflow.fade,
+                            style: const TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         ),
                         const SizedBox(
                           height: 2,
                         ),
-                        Text(
-                          bookList[i].author!,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.39,
+                          child: Text(
+                            bookList[i].author!,
+                            overflow: TextOverflow.fade,
+                            maxLines: 1,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         )
                       ],
