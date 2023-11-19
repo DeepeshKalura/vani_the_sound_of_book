@@ -3,8 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'books_splash.dart';
-// import 'controller/firebase/api_to_firebase.dart';
-import 'controller/firebase/api_to_firebase.dart';
 import 'firebase_options.dart';
 import 'controller/app/home_controller.dart';
 
@@ -13,9 +11,6 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  ApiToFirebase apiToFirebase = ApiToFirebase();
-  await apiToFirebase.discoverBooks();
-  await apiToFirebase.addBookToFirebase();
   runApp(const MyApp());
 }
 
@@ -38,9 +33,8 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: "SourceSansPro",
         ),
-        home: const
-            // HomeScreen(),
-            BooksSplash(),
+        home: const BooksSplash(),
+        // HomeScreen(),
       ),
     );
   }
