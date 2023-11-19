@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "711131970078",
+    "firebase_url": "https://project-college-5e5e3-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "project-college-5e5e3",
+    "storage_bucket": "project-college-5e5e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711131970078:android:434ad44383fea554148c0f",
+        "android_client_info": {
+          "package_name": "com.example.vani"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711131970078-a8rrlgofoa3k9j2mkll0s34ta6joa500.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnHVxQqd98Jrh030ACXkrg0ytMreCc6T8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711131970078-a8rrlgofoa3k9j2mkll0s34ta6joa500.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "711131970078-7pnn4aolc7lva9s18c3r6v35t8f0dlrv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.youtubeplayer"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711131970078:android:9298d718e5283e17148c0f",
+        "android_client_info": {
+          "package_name": "com.example.youtubeplayer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711131970078-ft4uvqsefvm8bbk4hvp37295nrs5lifd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.youtubeplayer",
+            "certificate_hash": "f116a09ab9b103f2e24b89f576938ae6320acfed"
+          }
+        },
+        {
+          "client_id": "711131970078-a8rrlgofoa3k9j2mkll0s34ta6joa500.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnHVxQqd98Jrh030ACXkrg0ytMreCc6T8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711131970078-a8rrlgofoa3k9j2mkll0s34ta6joa500.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "711131970078-7pnn4aolc7lva9s18c3r6v35t8f0dlrv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.youtubeplayer"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
