@@ -128,7 +128,7 @@ class BooksDetails extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SmoothStarRating(
-                          rating: 3,
+                          rating: 4,
                           // bookList[index].rating
 
                           size: 25,
@@ -224,7 +224,9 @@ class BooksDetails extends StatelessWidget {
                           onPressed: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const BooksRead(),
+                              builder: (context) => BooksRead(
+                                book: book,
+                              ),
                             ),
                           ),
                           child: const Text(

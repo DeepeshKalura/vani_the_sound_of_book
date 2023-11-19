@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
+import 'package:provider/provider.dart';
+
+import 'controller/app/read_pdf_controller.dart';
+import 'model/response_book.dart';
 
 class BooksRead extends StatelessWidget {
-  final String loremIpsum =
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+  final Book book;
 
-  const BooksRead({super.key});
+  const BooksRead({super.key, required this.book});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,34 +38,63 @@ class BooksRead extends StatelessWidget {
                             ),
                             onPressed: () => Navigator.pop(context),
                           ),
-                          IconButton(
-                            icon: const Icon(
-                              Icons.favorite_border,
-                              color: Colors.black,
-                              size: 35,
-                            ),
-                            onPressed: () {},
-                          )
+                          if (!Provider.of<ReadPdfController>(context)
+                              .isFavorite)
+                            IconButton(
+                              icon: const Icon(
+                                Icons.favorite_border,
+                                color: Colors.black,
+                                size: 35,
+                              ),
+                              onPressed: () {
+                                Provider.of<ReadPdfController>(context,
+                                        listen: false)
+                                    .changeFavorite();
+                              },
+                            )
+                          else
+                            IconButton(
+                              icon: const Icon(
+                                Icons.favorite,
+                                color: Colors.red,
+                                size: 35,
+                              ),
+                              onPressed: () {
+                                Provider.of<ReadPdfController>(context,
+                                        listen: false)
+                                    .changeFavorite();
+                              },
+                            )
                         ],
                       ),
                     ),
                     Expanded(
-                      child: SingleChildScrollView(
-                        child: Container(
-                          padding: const EdgeInsets.only(
-                            top: 10,
-                            left: 40,
-                            right: 20,
+                      child: Container(
+                        child: PDF(
+                          enableSwipe: true,
+                          swipeHorizontal: true,
+                          autoSpacing: false,
+                          pageFling: false,
+                          nightMode: false,
+                          onError: (error) {
+                            print(error.toString());
+                          },
+                          onPageError: (page, error) {
+                            print('$page: ${error.toString()}');
+                          },
+                          onPageChanged: (page, total) =>
+                              Provider.of<ReadPdfController>(context)
+                                  .fetchPageNumber(
+                            page ?? 0,
+                            total ?? 0,
                           ),
-                          child: Text(
-                            loremIpsum,
-                            style: const TextStyle(
-                              fontSize: 20,
-                              letterSpacing: 1.5,
-                              height: 1.5,
-                            ),
-                          ),
-                        ),
+                        ).cachedFromUrl(book.pdfUrl!,
+                            placeholder: (double progress) => Center(
+                                  child: CircularProgressIndicator(),
+                                ),
+                            errorWidget: (dynamic error) => Center(
+                                  child: Text(error.toString()),
+                                )),
                       ),
                     ),
                     Padding(
@@ -85,9 +118,10 @@ class BooksRead extends StatelessWidget {
                             ),
                           ),
                           RichText(
-                            text: const TextSpan(children: [
+                            text: TextSpan(children: [
                               TextSpan(
-                                text: "246/",
+                                text:
+                                    "${Provider.of<ReadPdfController>(context).currentPageNumber}/",
                                 style: TextStyle(
                                   fontSize: 20,
                                   color: Colors.black,
@@ -95,7 +129,8 @@ class BooksRead extends StatelessWidget {
                                 ),
                               ),
                               TextSpan(
-                                text: "378",
+                                text:
+                                    "${Provider.of<ReadPdfController>(context).totalPageNumber}",
                                 style: TextStyle(
                                   fontSize: 20,
                                   color: Colors.grey,

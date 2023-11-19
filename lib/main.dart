@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'books_splash.dart';
+import 'controller/app/read_pdf_controller.dart';
 import 'firebase_options.dart';
 import 'controller/app/home_controller.dart';
 
@@ -25,6 +26,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => HomeController(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => ReadPdfController(),
+        )
       ],
       child: MaterialApp(
         title: 'Vani',
