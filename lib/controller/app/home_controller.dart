@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:vani/model/response_book.dart';
 
-import '../../model/books.dart';
-import '../api/open_book.dart';
+import '../firebase/firebasedb_book.dart';
 
 class HomeController extends ChangeNotifier {
   final discoverSection = 'Discover More';
@@ -10,14 +10,14 @@ class HomeController extends ChangeNotifier {
 
   var isLoading = true;
 
-  final OpenBookkApi _openBookkApi = OpenBookkApi();
+  final FirebaseDBBook _firebaseDBBook = FirebaseDBBook();
 
-  List<Books>? discoverbooks;
+  List<Book> discoverBook = [];
 
   Future<void> discoverBooks() async {
     isLoading = true;
     notifyListeners();
-    discoverbooks = await _openBookkApi.fetchBooks();
+    discoverBook = await _firebaseDBBook.fetchBooks();
     isLoading = false;
     notifyListeners();
   }

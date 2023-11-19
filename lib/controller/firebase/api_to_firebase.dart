@@ -42,7 +42,7 @@ class ApiToFirebase {
           imageUrl: imageUrl,
           pdfUrl: pdfUrl,
           review: "0",
-          authors: books.authors ?? "No authors Found",
+          author: books.authors ?? "No authors Found",
         );
 
         await ref.set(

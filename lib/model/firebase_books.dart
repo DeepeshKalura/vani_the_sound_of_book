@@ -5,7 +5,7 @@ class FirebaseBook {
   final String imageUrl;
   final String pdfUrl;
   final String review;
-  final String authors;
+  final String author;
 
   FirebaseBook(
       {required this.id,
@@ -14,7 +14,7 @@ class FirebaseBook {
       required this.imageUrl,
       required this.pdfUrl,
       required this.review,
-      required this.authors});
+      required this.author});
 
   Map<String, dynamic> toMap() {
     return {
@@ -24,7 +24,7 @@ class FirebaseBook {
       'imageUrl': imageUrl,
       'pdfUrl': pdfUrl,
       'review': review,
-      'author': authors,
+      'author': author,
     };
   }
 
@@ -36,7 +36,7 @@ class FirebaseBook {
       imageUrl: map['imageUrl'],
       pdfUrl: map['pdfUrl'],
       review: map['review'],
-      authors: map['author'],
+      author: map['author'],
     );
   }
 }
